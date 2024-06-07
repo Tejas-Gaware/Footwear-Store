@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Password Reset{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/login-signUp.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/success.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+    
+<div class="wrapper">
+    
+    <h2>Password Reset</h2>
+    <p>An email has been sent to you please check</p>
+    
+</div>
+
+{% endblock content %}

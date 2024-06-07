@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}QR Code{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/qr_generator.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+<div class="wrapper">
+    <div class="card">
+        <h2>QR Code for verification of your order</h2>
+        <!-- <button id="dark-btn" class="generate-btn">Generate</button> -->
+        <img class="qr-code" id="qr-img" src="" alt="">
+        <p class="qr-desc">**Do not share this QR code with anyone.** Share this QR code only with the delivery personal at the time of receiving order. This QR code is generated to validate the order and your identity to our delivery personal.</p>
+        <a href="{% url 'home' %}"><i class='bx bx-arrow-back'></i> Back to Home</a>
+    </div>
+</div>
+
+<script>
+    let qri = document.getElementById("qr-img");
+    // For testing purposes we are adding the ip address of the device as the project is not hosted online...
+    data = '< IP ADDRESS OF YOUR DEVICE >'+'/receipt/{{ i }}/{{ pk }}/'
+    console.log(data)
+    qri.src =  "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= " + data;
+</script>
+
+{% endblock content %}

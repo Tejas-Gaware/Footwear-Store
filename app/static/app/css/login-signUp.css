@@ -1,0 +1,154 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    width: 500px;
+    background-color: purple;
+    color: aliceblue;
+    border-radius: 15px;
+    padding: 30px 40px;
+    border: 2px solid rgba(255 , 255 , 255 , .2);
+    background-color: var(--dark);
+    box-shadow: var(--shadow);
+}
+
+.wrapper h1 {
+    font-size: 34px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height:30px;
+    margin: 35px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 10px;
+    background-color: var(--light);
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255 , 255 , 255 , .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: var(--dark);
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: var(--dark);
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: -15px 0 15px;
+}
+
+.remember-forget a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.remember-forget a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0 0 0 .1);
+    cursor: pointer;
+    font-size: 16px;
+    color:#333;
+    font-weight: 600;
+}
+
+.wrapper .register-link {
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 0px 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+form {
+    text-align: center;
+}
+form a {
+    font-weight: var(--fnt-mid);
+    color: var(--brn);
+}
+
+@media(max-width:450px) {
+    .wrapper {
+        width: 325px;
+        background-color: purple;
+        color: aliceblue;
+        border-radius: 15px;
+        padding: 30px 40px;
+        border: 2px solid rgba(255 , 255 , 255 , .2);
+        background-color: var(--dark);
+        box-shadow: var(--shadow);
+    }
+    .remember-forget {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .wrapper .btn {
+        width: 70%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0 0 0 .1);
+        cursor: pointer;
+        font-size: 16px;
+        color:#333;
+        font-weight: 600;
+    }
+    .wrapper .register-link {
+        width: 100%;
+        font-size: 15px;
+        text-align: center;
+        margin: 20px 0px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .register-link p {
+        width: 80%;
+    }
+}

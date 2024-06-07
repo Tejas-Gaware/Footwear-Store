@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Orders{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/orders.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+<div class="nav-cont">
+    <nav>
+        <p class="heading">Order History</p>
+        <a href="{% url 'home' %}" class="home">return home</a>
+    </nav>
+</div>
+<section>
+    
+    {% for op in order_placed %}
+    <details>
+        <summary>
+
+            <div class="card">
+                
+                <div class="order-name">
+                    <p>{{op.product.title}}</p>
+                    <h2 class="price">₹{{op.product.price}}</h2>
+                    <span>Quantity x{{op.quantity}}</span>
+                    <span>{{op.ordered_date}}</span>
+                    <span class="order_status">{{op.status}}</span>
+                    <a href="{% url 'orders' op.id %}">Generate QR code</a>
+                </div>
+
+                <div class="prod-img">
+                    <img src="/media/{{op.product.product_images.first.image}}" alt="">
+                </div>
+
+            </div>
+
+        </summary>
+
+        <div>
+            <dl>
+                <div class="status">{{op.status}}</div>
+
+
+                {% if op.status == 'Cancel' %}
+                    <div style="width: 5%; background-color: gray" class="pb"></div>
+
+                {% elif op.status == 'Pending' %}
+                    <div style="width: 20%;" class="pb"></div>
+
+                {% elif op.status == 'Accepted' %}
+                    <div style="width: 40%;" class="pb"></div>
+
+                {% elif op.status == 'Packed' %}
+                    <div style="width: 60%;" class="pb"></div>
+
+                {% elif op.status == 'On The Way' %}
+                    <div style="width: 80%;" class="pb"></div>
+                {% else %}
+                    <div style=" width: 100%; background-color:rgb(44, 226, 44);" class="pb"></div>
+                {% endif %}
+            </dl>
+        </div>
+    </details>
+    {% endfor %}
+
+</section>
+
+{% endblock content %}

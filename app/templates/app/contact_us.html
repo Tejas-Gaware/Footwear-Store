@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Support{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/contact_us.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+<div class="wrapper">
+    <h2 class="title">Customer Support</h2>
+    <div class="container">
+        <h3>Submit your queries to our support team</h3>
+
+        {% if messages %}
+            {% for msg in messages %}
+                {{msg}}
+            {% endfor %}
+        {% endif %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter your name">
+            <input type="email" placeholder="Enter your registered email" name="email">
+            <textarea name="msg" id="" cols="60" rows="10"></textarea>
+            <button type="submit" id="dark-btn">Submit</button>
+        </form>
+        
+    </div>
+    <a href="{% url 'home' %}"><button id="light-btn" class="home-btn">Return home</button></a>
+    
+</div>
+
+{% endblock content %}

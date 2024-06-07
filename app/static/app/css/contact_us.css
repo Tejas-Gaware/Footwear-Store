@@ -1,0 +1,96 @@
+.wrapper, .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.title {
+    margin: 20px 0;
+}
+.container {
+    height: 70vh;
+    border: 1px solid #000;
+    width: 700px;
+    border-radius: 20px;
+    background-color: var(--brn);
+    justify-content: center;
+    padding: 1rem;
+    gap: 15px;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+input {
+    width: 300px;
+    text-align: center;
+}
+form textarea {
+    border-radius: 10px;
+    padding: 1.2rem;
+    background-color: var(--light);
+}
+
+button {
+    width: 100px;
+}
+.home-btn {
+    margin: 20px;
+    width: 150px;
+}
+
+@media(max-width:450px) {
+    .wrapper {
+        justify-content: center;
+        align-items: center;
+    }
+    .title {
+        position: fixed;
+        top: 0;
+        padding: 1rem;
+    }
+    .container {
+        margin-top: 50px;
+        height: 60vh;
+        width: 80%;
+        border: none;
+        box-shadow: 0 0 2rem #000000d8;
+        border-radius: 20px;
+        background-color: var(--brn);
+        justify-content: center;
+        padding: 1rem;
+        gap: 15px;
+    }
+    .container h3 {
+        text-align: center;
+    }
+    form {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    input {
+        width: 100%;
+        text-align: center;
+    }
+    form textarea {
+        width: 100%;
+        border-radius: 10px;
+        padding: 1.2rem;
+        background-color: var(--light);
+    }
+
+    button {
+        width: 100px;
+    }
+    .home-btn {
+        margin: 20px;
+        width: 150px;
+    }
+}

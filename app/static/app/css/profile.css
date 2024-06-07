@@ -1,0 +1,291 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    height: 90vh;
+    width: 80vw;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+.sidebar {
+    padding: 1.5rem;
+    margin-top: 20px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: flex-start;
+    background-color: #ffffff73;
+    border: 1px solid #fff;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.641);
+    border-radius: 20px;
+}
+.sidebar .profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    height: 150px;
+    background-color: var(--brn);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.641);
+    border-radius: 20px;
+    padding: 1rem;
+}
+.sidebar .profile-details p {
+    font-style: italic;
+    font-weight: var(--fnt-smi-bld);
+    color: var(--light);
+}
+.sidebar ul {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.sidebar ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+button {
+    width: 100px;
+    box-shadow: 0 3px 8px #000000ad;
+}
+
+.main {
+    display: flex;
+}
+.left, .right {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+}
+.left form {
+    display: flex;
+    width: 400px;
+    height: 500px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+form input {
+    width: 100%;
+    font-size: var(--fnt-sz-sml);
+    text-align: center;
+}
+form button {
+    width: 120px;
+}
+
+.right-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 55%;
+}
+.address-container {
+    width: 100%;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.address-container div {
+    height: 250px;
+    width: 150px;
+    background-color: var(--light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.641);
+    border-radius: 20px;
+}
+.address-card {
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.address-card p {
+    font-weight: var(--fnt-mid);
+    font-size: 0.7rem;
+}
+.address-card span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    height: 80px;
+}
+
+@media(max-width:450px) {
+    .container {
+        padding: 1rem;
+        height: 100%;
+        width: 100%;
+    }
+    .container h1 {
+        margin: 0 0 0 20px;
+    }
+    .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar {
+        padding: 1.5rem;
+        margin-top: 20px;
+        height: 300px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #ffffff73;
+        border: 1px solid #fff;
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.641);
+        border-radius: 20px;
+    }
+    .sidebar .profile-details {
+        padding: 1.3rem;
+        height: 110px;
+        width: 80%;
+        background-color: var(--brn);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.641);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .profile-details h3 {
+        font-size: 1.2rem;
+        height: 20px;
+    }
+    .sidebar .profile-details p {
+        font-style: italic;
+        font-weight: var(--fnt-smi-bld);
+        color: var(--light);
+        font-size: 0.9rem;
+        height: 10px;
+        padding: 0;
+    }
+    .sidebar ul {
+        height: 120px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+    .sidebar ul a {
+        font-size: 0.9rem;
+        font-weight: 800;
+    }
+    button {
+        width: 100px;
+        height: 50px;
+        box-shadow: 0 3px 8px #000000ad;
+    }
+    
+    /* border: 1px solid #000; */
+    .main {
+        width: 100%;
+        margin: 0 0 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .left, .right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .left {
+        margin-top: 10px;
+    }
+    .left form {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 5px;
+    }
+    .left form p {
+        width: 80%;
+    }
+    form input {
+        width: 100%;
+        font-size: var(--fnt-sz-sml);
+        text-align: center;
+    }
+    form button {
+        margin: 5px 0 15px;
+        width: 150px;
+    }
+    .right {
+        width: 85%;
+        background-color: var(--brn);
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.797);
+        border-radius: 20px;
+        padding: 0.8rem;
+        gap: 20px;
+    }
+    .right-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+        width: 100%;
+    }
+
+    .address-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .address-container div {
+        height: 300px;
+        width: 80%;
+        background-color: var(--light);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.641);
+        border-radius: 20px;
+    }
+    .address-card {
+        display: flex;
+        gap: 10px;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+    .address-card p {
+        width: 80%;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+}

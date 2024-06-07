@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/profile.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+    
+  <div class="container">
+    <h1>Profile</h1>
+
+    <div class="wrapper">
+        
+        <div class="sidebar">
+            <div class="profile-details">
+                <h3>{{request.user}}</h3>
+                <p>{% for a in phone %}{{a.mobile}}{% endfor %}</p>
+                <p>{{request.user.email}}</p>
+            </div>
+            <ul>
+                <li><a href="{% url 'changePassword' %}" title="Change password">Change Password</a></li>
+                <li><a href="{% url 'orders' %}" title="Check orders">My orders</a></li>
+                <li><a href="{% url 'logout' %}"><button id="dark-btn">Logout</button></a><a href="{% url 'home' %}"><button id="light-btn">home</button></a></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="left">
+                <h2>Add new address</h2>
+                <form action="" method="post" class="add-form">
+                    {% csrf_token %}
+
+                    {% for f in form %}
+
+                    <p>{{f}} <br> {{f.errors|striptags}} </p>
+
+                    {% endfor %}
+
+                    <button type="submit" id="dark-btn">Add</button>
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p>{{error}}</p>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if messages %}
+                    {% for msg in messages %}
+                        <div>{{msg}}</div>
+                    {% endfor %}
+                    {% endif %}
+                </form>
+            </div>
+            <div class="right">
+                <h2>All addresses</h2>
+                <div class="right-container">
+                {% for a in address %}
+                    <div class="address-container">
+                        <div class="address-card">
+                            <h5>{{a.name}}</h5>
+                            <p>{{a.mobile}} - <br> {{a.locality}} <br> {{a.city}} {{a.state}} <br> {{a.zipcode}}</p>
+                            <span>
+                                <a href="{% url 'updateAddress' pk=a.id %}"><button id="dark-btn">Update</button></a>
+                                <a href="{% url 'deleteAddress' a.id %}">Delete</a>
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  </div>
+  
+{% endblock content %}

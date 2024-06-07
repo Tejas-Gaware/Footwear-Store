@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/cart.css' %}">
+{% endblock cssLink %}
+
+<!-- {% block jsLink %}
+
+{% endblock jsLink %} -->
+
+{% block content %}
+    
+<nav>
+    <h3>My Cart</h3>
+    <a href="{% url 'home' %}"><b>Return home</b></a>
+</nav>
+
+{% if cart %}
+<div class="container">
+
+    <div class="product-details">
+
+        {% for item in cart %}
+        <div class="product-card">
+            <img class="product-image" src="/media/{{item.product.product_images.first.image}}" height="300px" alt="">
+
+            <div>
+                <h2 class="pd-title">{{ item.product.title }}</h2>
+                <h3 class="pd-price">₹{{item.product.price}}</h3>
+                <p>{{item.color}} UK-{{item.size}}</p>
+                <p>{{item.product.price}}</p>
+
+                <strong>Quantity &nbsp;
+                    <a class="minus-cart" id="minus-cart" pid={{item.product.id}}><i class='bx bxs-left-arrow'></i></a>
+                    
+                    <span>{{item.quantity}}</span>
+                    
+                    <a class="plus-cart" id="plus-cart" pid={{item.product.id}}><i class='bx bxs-right-arrow'></i></a>
+                </strong>
+
+                <a class="remove-cart" id="remove-cart" pid={{item.product.id}}>Remove</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+    <div class="total-details">
+
+        <div class="prices">
+            <span>
+                <small>Amount </small>
+                <small id="amount">₹&nbsp;{{amount}}</small>
+            </span>
+            <span>
+                <small>delivery fee </small> ₹79.89
+            </span>
+            <span>
+                <small>Packaging fee </small> NA
+            </span>
+            <strong>
+                <small>Total: </small>
+                <small id="totalAmount">₹&nbsp;{{totalAmount}}</small>
+            </strong>
+            <p>Including the taxes and excise duty.</p>
+        </div>
+
+        <a href="{% url 'checkout' %}">
+            <button id="dark-btn">Checkout</button>
+        </a>
+        <a href="{% url 'products' %}">
+            <button id="light-btn">Add more</button>
+        </a>
+    </div>
+    
+</div>
+{% else %}
+
+<a href="{% url 'products' %}">
+    <h2>Cart is empty... <u>shop for items now</u></h2>
+</a>
+
+
+{% endif %}
+{% endblock content %}

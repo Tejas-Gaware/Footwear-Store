@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login In{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/login-signUp.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+    
+<div class="wrapper">
+
+    <form action="" method="post" novalidate>
+        <h1>Login</h1>
+        {% csrf_token %}
+        {% for fm in form %}
+            <div class="input-box">
+                {{fm}} <small>{{fm.errors|striptags}}</small> <br>
+            </div>
+        {% endfor %}
+
+        <div class="remember-forget">
+            <a href="{% url 'password_reset' %}">Forgot Password</a>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+
+        <div class="register-link">
+            <p>Don't have an account?<a href="{% url 'register' %}">Register</a></p>
+        </div>
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+            {% endfor %}
+        {% endif %}
+
+    </form>
+</div>
+
+{% endblock content %}

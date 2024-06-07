@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/home.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+<div class="container" id="container">
+
+  <!-- Navigation bar -->
+  <nav id="nav" class="">
+    <div class="nav-logo">
+      <a href="{% url 'home' %}" class="logo">LUVIN</a>
+    </div>
+
+    <div class="nav-list" id="nav-list">
+      <ul>
+        <li><a href="{% url 'products' %}" class="nav-links">Products</a></li>
+        <li id="extra-link"><a href="#banner" class="nav-links">Arrivals</a></li>
+        <li id="extra-link"><a href="#products" class="nav-links">Explore</a></li>
+        <li id="additional-link"><a href="{% url 'orders' %}" class="nav-links">My orders</a></li>
+        <li id="additional-link"><a href="{% url 'register' %}" class="nav-links">Add Account</a></li>
+        <li><a href="{% url 'contact' %}" class="nav-links">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-icons">
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'cart' %}" class="bag">
+          <p class="count">{{totalItem}}</p>
+          <i class='bx bxs-shopping-bag'></i>
+        </a>
+        <a href="{% url 'profile' %}" class="profile">
+          <i class='bx bxs-user-circle'></i>
+        </a>
+      {% else %}
+        <a href="{% url 'login' %}" class="profile">
+          <i class='bx bxs-user-circle'></i>
+        </a>
+      {% endif %}
+      <div id="icon">
+        <i class="ri-close-large-line" name="close"></i>
+        <i class="ri-menu-line" name="menu"></i>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+  <div class="hero" style="background-image: url('static/app/images/banner-bg1.jpg');">
+    <h1>Luvin originals</h1>
+    <p> Step into style and comfort. Whether you're seeking trendy kicks for a night out or durable hiking boots for your next adventure, we've got you covered. Elevate every step and discover your perfect pair at Luvin.</p>
+  </div>
+
+
+  <!-- Products -->
+  <div class="products" id="products">
+    <h2>Collections</h2>
+    <p>Explore variety of products with highly graded quality and user comfort. Shop products like these with more a lot more categories and options, explore now...</p>
+
+    <div class="products-cont">
+      <div class="products-card">
+        <p>Air Force LV8</p>
+        <img src="{% static 'app/images/AF-lv8.webp' %}" alt="">
+      </div>
+      <div class="products-card">
+        <p>Peg FlyEase</p>
+        <img src="{% static 'app/images/P-flyease.webp' %}" alt="">
+      </div>
+      <div class="products-card">
+        <p>Peg Turbo</p>
+        <img src="{% static 'app/images/P-turbo.jpeg' %}" alt="">
+      </div>
+    </div>
+    <a href="{% url 'products' %}"><button class="products-btn" id="light-btn">Explore</button></a>
+  </div>
+
+
+  <!-- Banner-Video -->
+  <div id="banner" class="banner">
+    <video src="{% static 'app/images/nike-jrd-zoom.mp4' %}" autoplay muted loop playsinline preload="metadata"></video>
+    <p class="banner-title">Nike Jordan Air XXXV</p>
+    <p class="banner-desc">Our fastest, most responsive game shoe yet features Zoom Air cushioning under the heel that springs back with every step. The thick, large-volume heel unit provides impact cushioning, while the large forefoot unit helps drive you down the court. Since his game-winning shot that brought championship glory to North Carolina, Michael Jordan has been at the forefront of basketball consciousness. He took to the court in 1985 wearing the original Air Jordan I.</p>
+
+    <a href="/products/11">
+      <button class="banner-btn" id="dark-btn">Check now</button>
+    </a>
+  </div>
+
+
+  <!-- Special products -->
+  <div class="sp" id="sp" style="background-image: url('static/app/images/banner-bg2.jpg');">
+    <div class="sp-cont">
+      <p class="heading">Pegasus 40</p>
+      <br>
+      <p class="sp-desc">The Nike Pegasus, known throughout the running world as the “Peg,” is a legendary all-around running shoe steeped in 40 years of history. The shoe launched in 1983 and was Nike’s first shoe with a heel Air unit for shock absorption.</p>
+      <br>
+      <a href="/products/13">
+        <button class="sp-btn" id="light-btn">BUY NOW</button>
+      </a>
+    </div>
+</div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <!-- logo-container -->
+    <div class="footer-logo" id="footer-logo">
+      <a href="{% url 'home' %}">
+        LUVIN
+      </a>
+      <!-- social -->
+      <div class="footer-social">
+        <a href="< LINK TO YOUR FACEBOOK PAGE >"><i class='bx bxl-facebook-circle' ></i></a>
+        <a href="< LINK TO YOUR TWITTER PAGE >"><i class='bx bxl-twitter' ></i></a>
+        <a href="< LINK TO YOUR INSTAGRAM PAGE >"><i class='bx bxl-instagram-alt'></i></a>
+        <a href="< LINK TO YOUR YOUTUBE ACCOUNT >"><i class='bx bxl-youtube' ></i></a>
+      </div>
+      <div class="copyright">
+        <p>copyright<i class='bx bxs-copyright' ></i> 2023 - 2025 www.luvin.in - All Rights Reserved</p>
+      </div>
+    </div>
+
+    <!-- pages -->
+    <div class="footer-links" id="footer-links">
+      <strong>Pages</strong>
+      <ul>
+        <li><a href="{% url 'products' %}">Products</a></li>
+        <li><a href="#banner">Arrivals</a></li>
+        <li><a href="#products">Explore</a></li>
+      </ul>
+    </div>
+
+    <!-- contact -->
+    <div class="footer-links" id="footer-contact">
+      <strong>contact</strong>
+      <ul>
+        <li><a href="mailto:< YOUR CUSTOMER SUPPORT EMAIL ID >">email: xyz123@gmail.com</a></li>
+        <li><a href="#" type="tel">Phone: [] 000-0000-000</a></li>
+        <li><address> <!-- < YOUR ADDRESS > --> <br></address></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  var nav = document.getElementById("nav");
+  const toggleNavigation = () => {
+    nav.classList.toggle('active')
+  }
+  document.querySelector('#icon').addEventListener('click', () => toggleNavigation())
+</script>
+{% endblock content %}

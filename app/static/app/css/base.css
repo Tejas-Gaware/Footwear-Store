@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+:root {
+    /* font-weight */
+    --fnt-sml: 300;
+    --fnt-reg: 400;
+    --fnt-smi-bld: 500;
+    --fnt-mid: 600;
+    --fnt-lrg: 700;
+
+    /* font-size */
+    --fnt-sz-sml: 0.8rem;
+    --fnt-sz-mid: 2rem;
+    --fnt-sz-lrg: 3rem;
+    
+    /* font-color */
+    --dark: #272125;
+    --light: #e2e6e7;
+    --brn: #d0b49f;
+    --pnk: #ecdbce;
+    --z-modal: 1000;
+    --shadow: 0 3px 8px #000000ad;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y:scroll;
+}
+html::-webkit-scrollbar {
+    width: 10px;
+}
+html::-webkit-scrollbar-thumb {
+    background-color: #442e217a;
+    border-radius: 5px;
+}
+html::-webkit-scrollbar-track {
+    background-color: #00000000;
+}
+
+body {
+    background-color: var(--pnk);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+input,
+button {
+    border: none;
+    outline: none;
+    font-weight: var(--fnt-sz-lrg);
+    border-radius: 25px;
+    height: 50px;
+    font-weight: var(--fnt-lrg);
+}
+button {
+    box-shadow: 0 3px 8px #000000ad;
+}
+ul {
+    list-style: none;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+#light-btn {
+    color: var(--dark);
+    background-color: var(--light);
+}
+#dark-btn {
+    color: var(--light);
+    background-color: var(--dark);
+}

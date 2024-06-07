@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Product{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/product_view.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+{% if product.id == 11 %}
+<!-- special product AD #1 -->
+<video src="{% static 'app/images/nike-jrd-zoom.mp4' %}" autoplay muted loop></video>
+<div class="wrapper">
+    <nav>
+        <p class="heading">Products</p>
+        <div class="cart">
+            <a href="{% url 'cart' %}" class="bag">
+                <p class="count">{{totalItem}}</p>
+                <i class='bx bxs-shopping-bag'></i>
+            </a>
+        </div>
+    </nav>
+{% elif product.id == 15 %}
+<!-- Special product AD #2 -->
+<video src="{% static 'app/images/next-chapter.mp4' %}" autoplay muted loop></video>
+<div class="wrapper">
+    <nav>
+        <p class="heading" style="color: #fff;">Products</p>
+        <div class="cart">
+            <a href="{% url 'cart' %}" class="bag">
+                <p class="count">{{totalItem}}</p>
+                <i class='bx bxs-shopping-bag' style="color: #fff;"></i>
+            </a>
+        </div>
+    </nav>
+{% else %}
+<div class="wrapper">
+    <nav>
+        <p class="heading">Products</p>
+        <div class="cart">
+            <a href="{% url 'cart' %}" class="bag">
+                <p class="count">{{totalItem}}</p>
+                <i class='bx bxs-shopping-bag'></i>
+            </a>
+        </div>
+    </nav>
+{% endif %}
+
+    <div class="container">
+        <div class="product">
+
+            <div class="product-image">
+                <img src="/media/{{product.product_images.first.image}}" alt="" id="main-image">
+                <div class="other-images">
+
+                    {% for image in product.product_images.all %}
+                        <img src="/media/{{image.image}}" onmouseover="changeImage('{{image.image}}')" height="100px" alt="" class="small-images">
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="product-details">
+                {% if product.id == 15 or product.id == 11 %}
+                    <p class="product-name" style="color: #fff; margin-left: 20px;">{{product.title}}</p>
+                    <div class="main-detail">
+                        <strong><p class="price" style="color: #fff;">₹{{product.price}}</p></strong>
+                        <p class="gender" style="color: #fff;">In {{product.gender}}</p>
+                    </div>
+
+                    <p class="shoe-desc" style="color: #fff;">{{product.description}}</p>
+                {% else %}
+                    <p class="product-name">{{product.title}}</p>
+                    <div class="main-detail">
+                        <strong><p class="price">₹{{product.price}}</p></strong>
+                        <p class="gender">In {{product.gender}}</p>
+                    </div>
+
+                    <p class="shoe-desc">{{product.description}}</p>
+                {% endif %}
+                <form action="/add-to-cart">
+                    <input type="hidden" name="prod_id" value="{{product.id}}">
+                    <button type="submit" class="product-btn" id="dark-btn">Add to Bag</button>
+                    <div class="select-color">
+                        <select name="color-options" id="" class="color-options" required>
+
+                            {% for color in product.product_colors.all %}
+                                <option value="{{color.color}}">{{color.color}}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+    
+                    <div class="select-size">
+
+                        {% for size in product.product_sizes.all %}
+                            <label for="select-size">
+                                {{size.size}}
+                                <input type="radio" name="size-options" id="radio" value="{{size.size}}" required>
+                            </label>
+                        {% endfor %}
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeImage(image){
+        document.querySelector('#main-image').src = `/media/${image}`;
+    }
+</script>
+
+{% endblock content %}

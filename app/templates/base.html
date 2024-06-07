@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="{% static 'app/css/base.css' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"/>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+    
+    {% block cssLink %}{% endblock cssLink %}
+    {% block jsLink %}{% endblock jsLink %}
+
+</head> 
+<body>
+    {% block content %}
+
+    {% endblock content %}
+
+    {% block payment-gateway %}
+    
+    {% endblock payment-gateway %}
+
+
+    <script src="{% static 'app/js/jquery-3.7.1.min.js' %}"></script>
+    
+    <script src="{% static 'app/js/myscript.js' %}"></script>
+
+</body>
+</html>

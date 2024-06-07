@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Update Address{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/login-signUp.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/updateAddress.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+    
+<div class="wrapper">
+    <form action="" method="post">
+
+        {% csrf_token %}
+        <h1>Address Update</h1>
+        {% for fm in form %}
+            <div class="input-box">
+                {{fm}} <br> {{f.errors|striptags}}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn">Update Address</button>
+        <div class="return-link">
+            <a href="{% url 'profile' %}">Back</a>
+        </div>
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+            {% endfor %}
+        {% endif %}
+
+    </form>
+</div>
+{% endblock content %}

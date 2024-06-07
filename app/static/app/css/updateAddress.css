@@ -1,0 +1,11 @@
+
+@media(max-width:450px) {
+    .wrapper h1 {
+        font-size: 28px;
+    }
+    .return-link {
+        font-size: 15px;
+        text-align: center;
+        margin: 20px 0 0;
+    }
+}

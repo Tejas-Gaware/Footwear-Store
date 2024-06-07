@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}E-Receipt{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/receipt.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+
+    <div class="wrapper">
+        <div class="card">
+            <div class="details">
+                <h2>{{user}}</h2>
+                <h4>{{product}}</h4>
+                <p><strong>Order ID </strong> &nbsp; #<i>{{order_id}}</i></p>
+                <p><strong>Product ID </strong> &nbsp; #<i>{{payment_id}}</i></p>
+                <p><strong>Amount </strong> &nbsp; ₹{{price}}</p>
+                <p class="address"><i>{{address}}</i></p>
+            </div>
+            <img src="/media/{{od.product.product_images.first.image}}" alt="">
+        </div>
+    </div>
+
+{% endblock content %}

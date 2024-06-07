@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+{% block cssLink %}
+<link rel="stylesheet" href="{% static 'app/css/login-signUp.css' %}">
+{% endblock cssLink %}
+
+{% block content %}
+    
+<div class="wrapper">
+
+    <form action="" method="post" novalidate>
+        <h1>Sign Up</h1>
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="input-box">
+            {{fm}} <small>{{fm.errors|striptags}}</small> <br>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn">Register</button>
+
+        <div class="register-link">
+            <p>Have an account?<a href="{% url 'login' %}"> Login</a></p>
+        </div>
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% if messages %}
+        {% for msg in messages %}
+            <div>{{msg}}</div>
+        {% endfor %}
+        {% endif %}
+        
+    </form>
+</div>
+{% endblock content %}
